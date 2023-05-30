@@ -33,24 +33,24 @@ export const Principal = () => {
     return (
         <>
             <section className='container-fluid' >
-                <div style={{ marginLeft: '2%', marginBottom: '1%' }}> <SubHeader /></div>
+                <div style={{ marginLeft: '0%', marginBottom: '3%' }}> <SubHeader /></div>
 
-                <div className="row row-cols-1 row-cols-md-5 g-4 container-fluid">
+                <div className="row row-cols-1 row-cols-md-5">
 
                     {infoMarvel.slice(firtstIndex, lastIndex).map(infoMarvel => {
 
                         return (
-                            <div key={infoMarvel.id} className="col">
-                                <article key={infoMarvel.id} style={{ height: '85%' }} className="card backCard border-primary shadow p-3 mb-5 bg-body rounded-3">
+                            <div key={infoMarvel.id}  style={{ marginBottom: '3%' }}>
+                                <article key={infoMarvel.id} className="card h-100 backCard border-primary shadow p-3  border-radius">
                                     <div >
                                         <h4 className="card-body text-center letras">{`${infoMarvel.name === "Abomination (Emil Blonsky)" ? "Emil Blonsky" : infoMarvel.name}`}</h4>
                                     </div>
-                                    <div className='card-body  card-img-top' style={{ marginRight: '20%' }} >
+                                    <div className='card-body'>
                                         <img src={`${infoMarvel.thumbnail.path}` + `${infoMarvel.thumbnail.extension === 'jpg' ? '.jpg' : '.gif'
-                                            }`} style={{ height: '95%', width: '85%' }} className="img-thumbnail rounded-circle rounded mx-auto d-block" alt={infoMarvel.id} />
+                                            }`} className="img-thumbnail img-fluid rounded-circle rounded mx-auto d-block" alt={infoMarvel.id} />
                                     </div>
 
-                                    <div className='align-items-center d-grid gap-2 ' key={infoMarvel.id} style={{ padding: '2%' }}>
+                                    <div className='align-items-center d-grid gap-2 ' key={infoMarvel.id} style={{ padding: '0%' }}>
                                         <button type="button" className="align-items-center card backCard btn btn-light border-primary letras" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setCaracterId(infoMarvel.id)}>
                                             <CaracterMarvel caracterId={caracterId} /> Comics: {infoMarvel.comics.available}
                                         </button>

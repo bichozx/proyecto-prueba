@@ -21,7 +21,7 @@ export const Pagination = ({ allItems, cardPerPage, currentPage, setCurrentPage 
     }
     return (
         <>
-            <nav aria-label=" " key={currentPage} style={{ margin: '2%' }}>
+            <nav aria-label=" " key={currentPage} style={{ margin: '1%' }}>
                 <ul className="pagination justify-content-center">
                     <li className={`page-item ${currentPage === 1 ? "disabled" : ''}`}>
                         <button className={"page-link letras "} onClick={onPreviusPage} >
