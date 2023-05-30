@@ -3,26 +3,36 @@ import React, { useEffect, useState } from 'react'
 import { getSeriesCaracter } from '../../services/getSeriesCaracter'
 
 export const SeriesCaracter = ({ caracterId }) => {
+    const [isLoading, setIsLoading] = useState(false);
     const [series, setSeries] = useState([])
     const id = caracterId
 
     useEffect(() => {
+
+        setIsLoading(true);
         getSeriesCaracter(id)
             .then((response) => {
                 setSeries(response.results)
-
+                setIsLoading(false);
 
             })
             .catch((error) => {
                 console.log(error)
+                setIsLoading(true);
             });
     }, [id])
 
     return (
+
         <>
-            <div className="modal fade" id="exampleSeries" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div loading={isLoading} className="modal fade" id="exampleSeries" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered ">
                     <div className="modal-content backModal border-primary shadow letras">
+
+                        <div className="offcanvas-header">
+                            <div></div>
+                            <button type="button" className="text-reset btn-close letras" data-bs-dismiss="offcanvas">X</button>
+                        </div>
 
                         <div name="modal-body ">
                             {

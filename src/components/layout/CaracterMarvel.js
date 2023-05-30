@@ -3,27 +3,35 @@ import React, { useEffect, useState } from 'react'
 import { getCaracterForId } from '../../services/getCaracterForId'
 
 export const CaracterMarvel = ({ caracterId }) => {
-
+    const [isLoading, setIsLoading] = useState(false);
     const [proyecto, setProyecto] = useState([])
     const id = caracterId
 
 
     useEffect(() => {
 
+        setIsLoading(true);
         getCaracterForId(id)
             .then((response) => {
                 setProyecto(response.results)
+                setIsLoading(false);
 
             })
             .catch((error) => {
                 console.log(error)
+                setIsLoading(true);
             });
     }, [id])
     return (
         <>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div loading={isLoading} className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered ">
                     <div className="modal-content backModal border-primary shadow letras">
+                    
+                        <div className="offcanvas-header">
+                            <div></div>
+                            <button type="button" className="text-reset btn-close letras" data-bs-dismiss="offcanvas">X</button>
+                        </div>
 
                         <div name="modal-body ">
                             {
