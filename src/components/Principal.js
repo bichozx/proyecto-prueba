@@ -36,7 +36,6 @@ export const Principal = () => {
     }, [])
     return (
         <>
-            isLoading,
             <section className='container-fluid' >
                 <div style={{ marginLeft: '0%', marginBottom: '3%' }}> <SubHeader loading={isLoading} /></div>
 
